@@ -1,5 +1,6 @@
 import scrapy
-
+from scrapy import Selector
+import re
 
 class IgnLexiconSpider(scrapy.Spider):
     name = "ign_lexicon"
@@ -9,47 +10,41 @@ class IgnLexiconSpider(scrapy.Spider):
     def parse(self, response):
         sections = response.xpath("//section[@class='content']")
 
+        # sans se soucier des balises <b>
+
         words = sections.xpath("//span[@class='mw-headline']/text()").getall()
-        definitions_elements  = sections.xpath("//section[@class='jsx-2191675443 jsx-2580457997 jsx-28683165 wiki-section wiki-html']/p")
+        print("words", words)
+        definitions = sections.xpath("//section[@class='jsx-2191675443 jsx-2580457997 jsx-28683165 wiki-section wiki-html']/p").getall()
+        print("definition",definitions)
+
+        # pour les 4 premieres récupèrer la lettre dans les balise <b> et concéténer dan un élément tant qu'il y a présence d'une balise b
+
+        concatenated_texts = []
+        for definition in definitions[0]:
+            sel = Selector(text=definition)
+            full_text = sel.xpath("string()").get()
+            concatenated_texts.append(full_text)
+
+        # remplacer
+
+        definitions[0] = "".join(concatenated_texts)
+        final_definitions = []
+        for definition in definitions:
+            sel= Selector(text=definition)
+            clean_text = sel.xpath("string()").get()
+            clean_text = re.sub("\n",'',clean_text)
+            final_definitions.append(clean_text)
 
 
-# Afin de contournee les balises <b> nous devons traiter chaque definition$
+     #   print("--------------------------------------------------------------------------------")
+      #  print(final_definitions[0:4])
+       # print(len(final_definitions))
+        #print(len(words))
 
-        current_definition = ""
-        current_letter = None
-
-        definitions = []
-
-        for element in definitions_elements :
-            # pour chaque paragraph obtenire le text et elimine les balises <b>
-            paragraph_text = ''.join(element.xpath(".//text()").getall()).strip()
-            letter = element.xpath(".//b/text()").get()
-
-            # Si le texte dans le texte dans la balise <b> est different de la lettre actuelle, ajouter a la definitionv
-            if letter != current_letter and current_definition:
-                definitions.append((current_letter, current_definition.strip()))
-                current_definition=''
-
-            current_letter = letter
-
-            if paragraph_text:
-                current_definition += " "+paragraph_text
-
-        if current_definition:
-            definitions.append((current_letter, current_definition.strip()))
-
-
-        print(definitions)
-        print(len(words))
-        print(len(definitions))
-        if len(words) == len(definitions):
-           for word, definition in zip(words,definitions):
-               print(word,definition)
-               yield {
-                   "EN" : word,
-                   "definition":definition
-               }
-        else:
-            print ("erreur ")
-
+        print (final_definitions)
+        for word,definition in  zip(words,final_definitions):
+            yield {
+                "EN" : word,
+                "definition":definition
+            }
 
