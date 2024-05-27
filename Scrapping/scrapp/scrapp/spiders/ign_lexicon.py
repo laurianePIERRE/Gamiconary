@@ -7,7 +7,8 @@ class IgnLexiconSpider(scrapy.Spider):
     allowed_domains = ["www.ign.com"]
     start_urls = ["https://www.ign.com/wikis/gaming-terms-lexicon/A/",
                   "https://www.ign.com/wikis/gaming-terms-lexicon/B/",
-                  "https://www.ign.com/wikis/gaming-terms-lexicon/C/",
+                  "https://www.ign.com/wikis/gaming-terms-lexicon/C/",]
+    """
                   "https://www.ign.com/wikis/gaming-terms-lexicon/D/",
                   "https://www.ign.com/wikis/gaming-terms-lexicon/E/",
                   "https://www.ign.com/wikis/gaming-terms-lexicon/F/",
@@ -31,7 +32,7 @@ class IgnLexiconSpider(scrapy.Spider):
                   "https://www.ign.com/wikis/gaming-terms-lexicon/X/",
                   "https://www.ign.com/wikis/gaming-terms-lexicon/Y/",
                   "https://www.ign.com/wikis/gaming-terms-lexicon/Z/",]
-
+"""
     # variable globale pour suivre le nombre de termes scrappés
 
     total_terms_scrapped = 0
