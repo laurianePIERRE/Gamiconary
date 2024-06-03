@@ -10,6 +10,15 @@ class CampusGamingSpider(scrapy.Spider):
     start_urls = ["https://gamingcampus.fr/boite-a-outils/lexique-du-jeu-video-100-mots-du-jeu-video.html"]
     total_terms_scrapped = 0
     def parse(self, response):
+        """
+         Parses the lexicon from gamingccampus.fr to extract terms and their definitions.
+
+    Args:
+        response (scrapy.http.Response): The web page response object.
+
+    Returns:
+        dict: A dictionary containing terms and their definitions, which can be extracted with the -o output.json option.
+    """
         sections = response.xpath("/html/body/main/article/section")
         cleaned_words = []
         all_definition =[]
@@ -34,23 +43,14 @@ class CampusGamingSpider(scrapy.Spider):
         all_definition += cleaned_definition
         all_definition = remove_duplicates_list(all_definition)
         all_definition = [x for x in all_definition if x != '']
-        #all_words = remove_duplicates_list(all_words)
-
-        print("cleaning words length : ",len(all_words))
-        print("_________________________________definition_______________________")
-        print(all_definition)
-        print(len(all_words))
-        print(len(all_definition))
-
+        # create the dictionnary
         for word, definition in zip( cleaned_words,all_definition):
             self.total_terms_scrapped += 1
             yield {
                 "FR": word,
                 "definition": definition
             }
-            print(
-                "______________________________________________________________________________________________________")
-            print("total : ", self.total_terms_scrapped)
+
 
     def Close(self, reason):
         print("Nombre total de termes scrappés :", self.total_terms_scrapped)
