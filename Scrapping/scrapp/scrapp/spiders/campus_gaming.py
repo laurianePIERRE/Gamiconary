@@ -39,7 +39,7 @@ class CampusGamingSpider(scrapy.Spider):
                     definition = re.sub(r"\xa0»", "", definition)
                     cleaned_definition.append(definition)
         all_words += cleaned_words
-
+        print(all_words)
         all_definition += cleaned_definition
         all_definition = remove_duplicates_list(all_definition)
         all_definition = [x for x in all_definition if x != '']
