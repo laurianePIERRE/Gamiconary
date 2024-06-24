@@ -7,8 +7,7 @@ class IgnLexiconSpider(scrapy.Spider):
     allowed_domains = ["www.ign.com"]
     start_urls = ["https://www.ign.com/wikis/gaming-terms-lexicon/A/",
                   "https://www.ign.com/wikis/gaming-terms-lexicon/B/",
-                  "https://www.ign.com/wikis/gaming-terms-lexicon/C/",]
-    """
+                  "https://www.ign.com/wikis/gaming-terms-lexicon/C/",
                   "https://www.ign.com/wikis/gaming-terms-lexicon/D/",
                   "https://www.ign.com/wikis/gaming-terms-lexicon/E/",
                   "https://www.ign.com/wikis/gaming-terms-lexicon/F/",
@@ -32,21 +31,24 @@ class IgnLexiconSpider(scrapy.Spider):
                   "https://www.ign.com/wikis/gaming-terms-lexicon/X/",
                   "https://www.ign.com/wikis/gaming-terms-lexicon/Y/",
                   "https://www.ign.com/wikis/gaming-terms-lexicon/Z/",]
-"""
+
     # variable globale pour suivre le nombre de termes scrappés
 
     total_terms_scrapped = 0
-
+    processed_terms = set()
 
     def __init__(self,*args,**kwargs):
         super(IgnLexiconSpider, self).__init__(*args,**kwargs)
         # Reinizalize viable each excute spider
         self.total_terms_scrapped =0
+        self.processed_terms = set()
     def parse(self, response):
         sections = response.xpath("//section[@class='content']")
         print("total : ",self.total_terms_scrapped)
         # sans se soucier des balises <b>
-
+        # reset variables for each page
+        words = []
+        definitions = []
         words = sections.xpath("//span[@class='mw-headline']/text()").getall()
         print("words", words)
         definitions = sections.xpath("//section[@class='jsx-2191675443 jsx-2580457997 jsx-28683165 wiki-section wiki-html']/p").getall()
@@ -54,15 +56,6 @@ class IgnLexiconSpider(scrapy.Spider):
 
         # pour les 4 premieres récupèrer la lettre dans les balise <b> et concéténer dan un élément tant qu'il y a présence d'une balise b
 
-        concatenated_texts = []
-        for definition in definitions[0]:
-            sel = Selector(text=definition)
-            full_text = sel.xpath("string()").get()
-            concatenated_texts.append(full_text)
-
-        # remplacer
-
-        definitions[0] = "".join(concatenated_texts)
         final_definitions = []
 
         for definition in definitions:
@@ -70,6 +63,9 @@ class IgnLexiconSpider(scrapy.Spider):
             clean_text = sel.xpath("string()").get()
             clean_text = re.sub("\n",'',clean_text)
             final_definitions.append(clean_text)
+
+        words = remove_duplicates_list(words)
+        final_definitions = remove_duplicates_list(final_definitions)
 
 
         print (" le documents se compose de ",len(words)," mots, et donc ",len(final_definitions), " definitions")
@@ -84,3 +80,17 @@ class IgnLexiconSpider(scrapy.Spider):
         print("total : ", self.total_terms_scrapped)
     def Close (self, reason):
         print("Nombre total de termes scrappés :",self.total_terms_scrapped)
+
+def remove_duplicates_list(my_list):
+        """
+
+        :param liste:
+        :return:
+        """
+        unique_list = []
+        seen = set()
+        for item in my_list:
+            if item is not seen:
+                unique_list.append(item)
+                seen.add(item)
+        return unique_list
