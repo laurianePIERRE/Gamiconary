@@ -1,31 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c56981b-b8e7-4723-9de9-bf9be532229f" name="Changes" comment="" />
+    <list default="true" id="5c56981b-b8e7-4723-9de9-bf9be532229f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Scrapping/scrapp/scrapp/beautifullsoup/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scrapping/scrapp/scrapp/spiders/EtudesCreatives.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scrapping/scrapp/scrapp/spiders/playstation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bilan.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_processing/exemple.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gamiconary/about_files.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gamiconary/dictionary/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gamiconary/dictionary/static/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gamiconary/dictionary/templates/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gamiconary/dictionary/templates/apropos.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gamiconary/dictionary/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gamiconary/dictionary/templates/contact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gamiconary/dictionary/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gamiconary/dictionary/templates/suggestion.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gamiconary/populate_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back_end/accueil.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrapping/scrapp/scrapp/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrapping/scrapp/scrapp/pipelines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrapping/scrapp/scrapp/spiders/ign_lexicon.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrapping/scrapp/scrapp/spiders/ign_lexicon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_processing/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_processing/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_processing/preprocessigne_afunction.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_processing/preprocessigne_afunction.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2dfyUfvpsS38O2bcDDnkongIkON" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.about_files.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.populate_db.executor&quot;: &quot;Run&quot;,
+    &quot;Python.preprocessigne_afunction.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lauriane\OneDrive\Documents\Master\Projet Alternance\Gamiconay_app\Data\data_french_lexicon_web" />
+      <recent name="C:\Users\Lauriane\OneDrive\Documents\Master\Projet Alternance\Gamiconay_app" />
+      <recent name="C:\Users\Lauriane\OneDrive\Documents\Master\Projet Alternance\Gamiconay_app\Scrapping\scrapp\scrapp\beautifullsoup" />
+      <recent name="C:\Users\Lauriane\OneDrive\Documents\Master\Projet Alternance\Gamiconay_app\Data\data_to_transform" />
+      <recent name="C:\Users\Lauriane\OneDrive\Documents\Master\Projet Alternance\Gamiconay_app\Data" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Gamiconay_app" />

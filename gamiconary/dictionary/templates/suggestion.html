@@ -1,0 +1,27 @@
+
+
+{% extends 'base.html' %}
+{% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% endblock %}
+{% block head %}
+{% if messages %}
+<script>
+
+</script>
+{% endif %}
+ {% endblock %}
+ {% block content %}
+  <h1> Suggestion deTerme </h1>
+        <div class="suggestion_form">
+        <form id="suggest_form" method="POST" action="{% url 'suggestion' %} ">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit" class="suggest-button"> Envoyer la suggestion</button>
+        </form>
+
+        <! JavaScript Pour afficher pop-up>
+       <a href="{% url 'home' %}" class="nav-link"> Retour à l'accueil</a>
+        </div>
+{% endblock %}
+

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+ {% block content %}
+
+<h1> GAMICONARY</h1>
+<h2> Votre recherche </h2>
+<h2 style="color:red;">VERSION TEST HOME.HTML</h2>
+
+
+
+<div class="search-container">
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="word" placeholder="Recherchez un terme..." class="search-input">
+
+        <div class="ratio-group">
+            <input type="radio" id="FR", name="langue", value="FR" checked/>
+            <label for="FR"> FR</label>
+
+            <input type="radio" id="EN", name="langue", value="EN" checked/>
+            <label for="EN"> EN</label>
+        </div>
+        <input type="submit" value="envoyer">
+    </form>
+</div>
+
+
+{% if terme %}
+
+<div class="result-section">
+    <h2> Mot recherché</h2>
+    <ul>
+        <li> FR : {{ terme.FR}}</li>
+        <li> EN : {{terme.EN_match}}</li>
+        <li> définition française : {{terme.definition_FR }}</li>
+        <li> définition anglaise : {{terme.definition_EN }}</li>
+    </ul>
+</div>
+{% else %}
+    {% if request.method == 'POST' %}
+        <p class="no-result"> Aucun terme trouvé pour votre recherche</p>
+    {% endif %}
+{% endif %}
+<!-- bouttons pour soumettre une suggestion -->
+<div class="button_suggestion">
+       <a href="{% url 'suggestion' %}" >
+           <button type="button" class="button_sugg"> Proposer un terme </button>
+       </a>
+    </div>
+
+{% endblock %}
+
+{% block extra_js %}
+       <!-- Vérifie si la variable de session est présente et affiche la pop-up -->
+    {% if request.session.show_success_popup %}
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Succès !',
+            text: 'Votre suggestion a bien été prise en compte.',
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            // Après avoir montré la pop-up, on supprime la variable de session via JavaScript
+            fetch('/clear-session-popup', { method: 'POST' });
+        });
+    </script>
+    {% endif %}
+{% endblock %}
+{

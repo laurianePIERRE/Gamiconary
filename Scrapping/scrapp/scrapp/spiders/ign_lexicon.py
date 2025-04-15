@@ -56,6 +56,8 @@ class IgnLexiconSpider(scrapy.Spider):
 
         # pour les 4 premieres récupèrer la lettre dans les balise <b> et concéténer dan un élément tant qu'il y a présence d'une balise b
 
+
+
         final_definitions = []
 
         for definition in definitions:

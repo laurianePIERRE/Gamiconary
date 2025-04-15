@@ -1,0 +1,284 @@
+.header-container:empty, header:empty {
+    display: none;
+}
+main.container {
+    margin-top: -20px; /* Ajuste selon le besoin */
+}
+
+/* ======= STYLES GÉNÉRAUX ======= */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* ======= BARRE DE NAVIGATION ======= */
+.navbar {
+    margin: 0;
+    padding :0;
+}
+
+/* Masquer un éventuel header vide */
+header:empty, .header-container:empty {
+    display: none;
+}
+
+/* Vérification pour un espace non identifié */
+.container:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;  /* Ajuste la hauteur selon le besoin */
+    margin: 0;
+    padding: 0;
+}
+
+.logo a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap :20px;
+}
+
+ .nav-links li {
+    margin: 0 ;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    color: #f8f9fa;
+}
+
+/* ======= CONTENU PRINCIPAL ======= */
+.container {
+    width: 60%;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ======= BOUTONS GÉNÉRAUX ======= */
+button, .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* ======= TITRE ======= */
+h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* ======= FORMULAIRES ======= */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+input:focus, textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0px 0px 8px rgba(0, 91, 187, 0.5);
+}
+
+/* ======= PIED DE PAGE ======= */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    margin-top: 20px;
+}
+
+/* ======= FORMULAIRE DE RECHERCHE ======= */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-input {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s ease-in-out;
+}
+
+.search-input:focus {
+    border-color: #0056b3;
+    box-shadow: 0px 0px 8px rgba(0, 91, 187, 0.5);
+}
+
+.search-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    margin-top: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+/* ======= RESULTATS ======= */
+.result-section {
+    margin: 20px auto;
+    width: 50%;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.result-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.result-section li {
+    padding: 5px 0;
+}
+
+.no-result {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+}
+
+/* ======= BOUTON SUGGESTION ======= */
+.button_suggestion {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button_sugg {
+    background-color: grey;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.button_sugg:hover {
+    background-color: #218838;
+}
+
+
+/* ======= FORMULAIRE DE SOUMISSION ======= */
+.suggestion-form {
+    width: 50%;
+    margin: 30px auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-form label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+.suggestion-form input,
+.suggestion-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+.suggestion-form input:focus,
+.suggestion-form textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0px 0px 8px rgba(0, 91, 187, 0.5);
+}
+
+.suggestion-form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.suggestion-form button:hover {
+    background-color: #218838;
+}
+
